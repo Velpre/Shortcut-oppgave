@@ -11,6 +11,7 @@ class ListComicsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var comicList = [Comic]()
+    var dataManager = DataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class ListComicsViewController: UIViewController {
     
     
     func fetchComics(url: String){
-        getData(url: url) { error, result in
+        dataManager.getData(url: url) { error, result in
             if let error = error {
                 let message = error
                 print(message.localizedDescription)
