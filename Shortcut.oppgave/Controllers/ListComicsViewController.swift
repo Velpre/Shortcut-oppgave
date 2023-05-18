@@ -15,10 +15,18 @@ class ListComicsViewController: UIViewController {
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        print("test")
+        
+        getData(url: "https://xkcd.com/info.0.json") { error, result in
+            if let error = error {
+                let message = error
+                print(message.localizedDescription)
+            }
+            
+            if let safeData = result {
+                print(safeData)
+                }
+            }
     }
-
-
 }
 
 extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -28,7 +36,7 @@ extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) 
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         return cell
     }
 }
