@@ -19,66 +19,11 @@ class ListComicsViewController: UIViewController {
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        fetchRandomComics()
+        dataManager.delegate = self
+        
+        dataManager.fetchRandomComics()
         collectionView.collectionViewLayout = createLayout()
     }
-    
-    func fetchRandomComics() {
-        dataManager.findLastComicId{ randomArray in
-            let group = DispatchGroup()
-            for number in randomArray {
-                let numberString = String(number)
-                let url = "https://xkcd.com/" + numberString + "/info.0.json"
-                
-                group.enter()
-                self.dataManager.getData(url: url) { error, result in
-                    if let error = error {
-                        let message = error
-                        print(message.localizedDescription)
-                    }
-                    
-                    if let safeData = result {
-                        self.comicList.append(safeData)
-                        self.downloadImage(url:  URL(string: safeData.img)! ) { imageResult in
-                            if let image = imageResult {
-                                self.comicImgList.append(image)
-                            }
-                            group.leave()
-                        }
-                    }else{
-                        group.leave()
-                    }
-                }
-            }
-            group.notify(queue: .main) {
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-        }
-    }
-
-    
-    func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
-        DispatchQueue.global().async {
-            
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                  guard let data = data, error == nil else {
-                      completion(nil)
-                      return
-                  }
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    completion(image)
-                    
-                } else {
-                    completion(nil)
-                }
-            }
-            }.resume()
-        }
-    }
-    
     
     func createLayout() -> UICollectionViewCompositionalLayout{
         //Item
@@ -119,13 +64,18 @@ extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ComicCell
-        
-        cell.textLabel.text = comicList[indexPath.row].title
+        cell.comicImage.image = comicImgList[indexPath.row]
         return cell
     }
 }
 
 
-
+extension ListComicsViewController: DataManagerDelegate{
+    func didUpdateData(_ comicList: [Comic], _ imageList: [UIImage]) {
+        self.comicList = comicList
+        self.comicImgList = imageList
+        self.collectionView.reloadData()
+    }
+}
 
 

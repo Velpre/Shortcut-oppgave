@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +18,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tbp-en-ify">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XWJ-t0-ZOI">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -34,28 +33,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww8-eK-Mx1">
-                                                    <rect key="frame" x="48" y="53.666666666666657" width="32.333333333333343" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zlc-vs-rGi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ww8-eK-Mx1" firstAttribute="centerX" secondItem="HoN-ed-Ae6" secondAttribute="centerX" id="8s2-nr-BxO"/>
-                                                <constraint firstItem="ww8-eK-Mx1" firstAttribute="centerY" secondItem="HoN-ed-Ae6" secondAttribute="centerY" id="FgS-IG-rH6"/>
+                                                <constraint firstItem="Zlc-vs-rGi" firstAttribute="centerY" secondItem="HoN-ed-Ae6" secondAttribute="centerY" id="39A-Zp-zzU"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zlc-vs-rGi" secondAttribute="bottom" id="dBz-6U-45O"/>
+                                                <constraint firstItem="Zlc-vs-rGi" firstAttribute="leading" secondItem="HoN-ed-Ae6" secondAttribute="leading" id="dxu-PU-1Av"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zlc-vs-rGi" secondAttribute="trailing" id="kKn-WC-3Zi"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="textLabel" destination="ww8-eK-Mx1" id="CVc-dd-Mnp"/>
+                                            <outlet property="comicImage" destination="Zlc-vs-rGi" id="fxg-Wt-iS1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tbp-en-ify" secondAttribute="bottom" id="IBU-T4-nnM"/>
                             <constraint firstItem="Tbp-en-ify" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="duc-iC-yzn"/>
@@ -72,9 +70,4 @@
             <point key="canvasLocation" x="33" y="4"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -9,5 +9,5 @@ import UIKit
 
 class ComicCell: UICollectionViewCell {
     
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var comicImage: UIImageView!
 }
