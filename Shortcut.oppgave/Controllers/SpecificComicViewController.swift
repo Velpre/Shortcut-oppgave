@@ -35,8 +35,9 @@ class SpecificComicViewController: UIViewController {
 
 extension SpecificComicViewController: DataManagerDelegateSpecificComic{
     func didUpdateData(_ comic: Comic, _ image: UIImage) {
-
-        print(image)
+        self.comicImage.image = image
+        self.dateAdded.text = "Date Added: " + comic.day + "." + comic.month + "." + comic.year
+        self.title = comic.title
     }
     
     func didFoundError(_ error: String) {
