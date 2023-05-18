@@ -66,6 +66,7 @@ class DataManager{
         }
     }
     func fetchRandomComics() {
+        removeAllComicsFromArray()
         findLastComicId{ randomArray in
             let group = DispatchGroup()
             for number in randomArray {
@@ -99,6 +100,10 @@ class DataManager{
             }
         }
     }
+    func removeAllComicsFromArray(){
+        comicList.removeAll()
+        comicImgList.removeAll()
+    }
     func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
             
@@ -118,6 +123,5 @@ class DataManager{
             }.resume()
         }
     }
-
 }
 
