@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2S9-wR-4FX">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2S9-wR-4FX" customClass="ComicCell" customModule="Shortcut_oppgave" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HoN-ed-Ae6">
@@ -47,6 +47,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="textLabel" destination="ww8-eK-Mx1" id="CVc-dd-Mnp"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

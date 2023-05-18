@@ -17,8 +17,13 @@ class ListComicsViewController: UIViewController {
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        getData(url: "https://xkcd.com/info.0.json") { error, result in
+        fetchComics(url: "https://xkcd.com/info.0.json")
+        collectionView.collectionViewLayout = createLayout()
+    }
+    
+    
+    func fetchComics(url: String){
+        getData(url: url) { error, result in
             if let error = error {
                 let message = error
                 print(message.localizedDescription)
@@ -28,9 +33,9 @@ class ListComicsViewController: UIViewController {
                 print(safeData)
                 }
             }
-        
-        collectionView.collectionViewLayout = createLayout()
     }
+    
+    
     
     func createLayout() -> UICollectionViewCompositionalLayout{
         //Item
@@ -60,7 +65,6 @@ class ListComicsViewController: UIViewController {
         //return
         return UICollectionViewCompositionalLayout(section: section)
     }
-
 }
 
 extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
