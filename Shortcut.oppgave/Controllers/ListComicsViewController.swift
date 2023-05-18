@@ -18,18 +18,20 @@ class ListComicsViewController: UIViewController {
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        fetchComics(url: "https://xkcd.com/info.0.json")
+        fetchRandomComics()
         collectionView.collectionViewLayout = createLayout()
     }
     
-    
-    func fetchComics(url: String){
+    func fetchRandomComics() {
         dataManager.findLastComicId{ randomArray in
+            
+            let group = DispatchGroup()
             
             for number in randomArray {
                 let numberString = String(number)
                 let url = "https://xkcd.com/" + numberString + "/info.0.json"
                 
+                group.enter()
                 self.dataManager.getData(url: url) { error, result in
                     if let error = error {
                         let message = error
@@ -38,12 +40,21 @@ class ListComicsViewController: UIViewController {
                     
                     if let safeData = result {
                         self.comicList.append(safeData)
+                    } else {
+                        group.leave()
                     }
                 }
             }
+            
+            group.notify(queue: .main) {
+                
+            DispatchQueue.main.async {
+                print(self.comicList)
+            }
+            }
         }
-        print(comicList)
     }
+
     
     
     
