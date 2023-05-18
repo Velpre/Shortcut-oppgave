@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListComicsViewController" customModule="Shortcut_oppgave" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tbp-en-ify">
@@ -154,12 +154,12 @@
             </objects>
             <point key="canvasLocation" x="5881.679389312977" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="Cmp-fe-2PS">
             <objects>
                 <viewController storyboardIdentifier="SpecificComicViewController" id="vBi-Np-7Fz" customClass="SpecificComicViewController" customModule="Shortcut_oppgave" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7PT-EW-eve">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3A-LG-VK6">
@@ -225,7 +225,7 @@
                             <constraint firstItem="Axj-nP-8H2" firstAttribute="trailing" secondItem="T1p-mz-Bi2" secondAttribute="trailing" constant="20" id="wqA-6R-eXV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="I6k-Rg-HZC"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="I6k-Rg-HZC"/>
                     <navigationItem key="navigationItem" id="zmW-Oy-FZS"/>
                     <connections>
                         <outlet property="comicImage" destination="gCI-me-xZw" id="aHl-fq-5no"/>
@@ -238,15 +238,17 @@
             </objects>
             <point key="canvasLocation" x="3121" y="877"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="RM0-aG-oTr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QTE-Tb-fnj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LaK-Po-z1k"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="LaK-Po-z1k"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KnA-VF-RzG">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="KnA-VF-RzG">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -262,9 +264,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XJf-YD-AfJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lWw-QW-8TT">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="lWw-QW-8TT">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="QTE-Tb-fnj" kind="relationship" relationship="viewControllers" id="eI3-Xz-KQ0"/>
@@ -278,6 +281,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
     </resources>
 </document>
