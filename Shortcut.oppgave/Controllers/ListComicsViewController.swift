@@ -24,16 +24,25 @@ class ListComicsViewController: UIViewController {
     
     
     func fetchComics(url: String){
-        dataManager.getData(url: url) { error, result in
-            if let error = error {
-                let message = error
-                print(message.localizedDescription)
-            }
+        dataManager.findLastComicId{ randomArray in
             
-            if let safeData = result {
-                print(safeData)
+            for number in randomArray {
+                let numberString = String(number)
+                let url = "https://xkcd.com/" + numberString + "/info.0.json"
+                
+                self.dataManager.getData(url: url) { error, result in
+                    if let error = error {
+                        let message = error
+                        print(message.localizedDescription)
+                    }
+                    
+                    if let safeData = result {
+                        self.comicList.append(safeData)
+                    }
                 }
             }
+        }
+        print(comicList)
     }
     
     
