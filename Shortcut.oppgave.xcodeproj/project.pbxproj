@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F4FB03492A1631080068BD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB03482A1631080068BD5E /* AppDelegate.swift */; };
 		F4FB034B2A1631080068BD5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB034A2A1631080068BD5E /* SceneDelegate.swift */; };
-		F4FB034D2A1631080068BD5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB034C2A1631080068BD5E /* ViewController.swift */; };
+		F4FB034D2A1631080068BD5E /* ListComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB034C2A1631080068BD5E /* ListComicsViewController.swift */; };
 		F4FB03502A1631080068BD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FB034E2A1631080068BD5E /* Main.storyboard */; };
 		F4FB03532A1631080068BD5E /* Shortcut_oppgave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4FB03512A1631080068BD5E /* Shortcut_oppgave.xcdatamodeld */; };
 		F4FB03552A1631090068BD5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FB03542A1631090068BD5E /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		F4FB03452A1631080068BD5E /* Shortcut.oppgave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shortcut.oppgave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FB03482A1631080068BD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FB034A2A1631080068BD5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F4FB034C2A1631080068BD5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4FB034C2A1631080068BD5E /* ListComicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComicsViewController.swift; sourceTree = "<group>"; };
 		F4FB034F2A1631080068BD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4FB03522A1631080068BD5E /* Shortcut_oppgave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shortcut_oppgave.xcdatamodel; sourceTree = "<group>"; };
 		F4FB03542A1631090068BD5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +39,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F474CA202A163727004033C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB034C2A1631080068BD5E /* ListComicsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F474CA212A163732004033C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F4FB033C2A1631080068BD5E = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +73,9 @@
 		F4FB03472A1631080068BD5E /* Shortcut.oppgave */ = {
 			isa = PBXGroup;
 			children = (
+				F474CA212A163732004033C1 /* Model */,
+				F474CA202A163727004033C1 /* Controllers */,
 				F4FB035F2A1631750068BD5E /* Supporting files */,
-				F4FB034C2A1631080068BD5E /* ViewController.swift */,
 				F4FB034E2A1631080068BD5E /* Main.storyboard */,
 				F4FB03542A1631090068BD5E /* Assets.xcassets */,
 				F4FB03562A1631090068BD5E /* LaunchScreen.storyboard */,
@@ -149,7 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FB034D2A1631080068BD5E /* ViewController.swift in Sources */,
+				F4FB034D2A1631080068BD5E /* ListComicsViewController.swift in Sources */,
 				F4FB03492A1631080068BD5E /* AppDelegate.swift in Sources */,
 				F4FB03532A1631080068BD5E /* Shortcut_oppgave.xcdatamodeld in Sources */,
 				F4FB034B2A1631080068BD5E /* SceneDelegate.swift in Sources */,
