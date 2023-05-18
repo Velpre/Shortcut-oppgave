@@ -46,6 +46,7 @@
                                                 <constraint firstItem="ww8-eK-Mx1" firstAttribute="centerY" secondItem="HoN-ed-Ae6" secondAttribute="centerY" id="FgS-IG-rH6"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F474CA232A1637B0004033C1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA222A1637B0004033C1 /* Comic.swift */; };
 		F474CA262A16380C004033C1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA252A16380C004033C1 /* DataManager.swift */; };
+		F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA272A164008004033C1 /* CompositionalLayout.swift */; };
 		F4FB03492A1631080068BD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB03482A1631080068BD5E /* AppDelegate.swift */; };
 		F4FB034B2A1631080068BD5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB034A2A1631080068BD5E /* SceneDelegate.swift */; };
 		F4FB034D2A1631080068BD5E /* ListComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB034C2A1631080068BD5E /* ListComicsViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		F474CA222A1637B0004033C1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		F474CA252A16380C004033C1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F474CA272A164008004033C1 /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
 		F4FB03452A1631080068BD5E /* Shortcut.oppgave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shortcut.oppgave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FB03482A1631080068BD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FB034A2A1631080068BD5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				F474CA252A16380C004033C1 /* DataManager.swift */,
+				F474CA272A164008004033C1 /* CompositionalLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */,
 				F4FB034D2A1631080068BD5E /* ListComicsViewController.swift in Sources */,
 				F474CA262A16380C004033C1 /* DataManager.swift in Sources */,
 				F4FB03492A1631080068BD5E /* AppDelegate.swift in Sources */,
