@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pn-Pa-4ba">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vBi-Np-7Fz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.2671755725191" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1268" y="4"/>
         </scene>
         <!--Comic View Controller-->
         <scene sceneID="zRZ-jy-GCn">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovd-cI-IrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2385.4961832061067" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2176" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0kH-yx-Kst">
@@ -174,8 +174,91 @@
             </objects>
             <point key="canvasLocation" x="188.54961832061068" y="3.5211267605633805"/>
         </scene>
+        <!--Specific Comic View Controller-->
+        <scene sceneID="Cmp-fe-2PS">
+            <objects>
+                <viewController storyboardIdentifier="SpecificComicViewController" id="vBi-Np-7Fz" customClass="SpecificComicViewController" customModule="Shortcut_oppgave" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7PT-EW-eve">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3A-LG-VK6">
+                                <rect key="frame" x="20" y="79" width="353" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write id you would like to search for.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CfL-pp-BzW">
+                                        <rect key="frame" x="0.0" y="0.0" width="303.33333333333331" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-PE-zWw">
+                                        <rect key="frame" x="303.33333333333331" y="0.0" width="49.666666666666686" height="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="searchButtonPressed:" destination="vBi-Np-7Fz" eventType="touchUpInside" id="OCu-Qv-8sY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="epq-5f-e3b"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gCI-me-xZw">
+                                <rect key="frame" x="20" y="139" width="353" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="cr8-fs-Msv"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="T1p-mz-Bi2">
+                                <rect key="frame" x="20" y="459" width="353" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Titel:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPn-s8-3bW">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="64"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date added:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biW-Ka-dkc">
+                                        <rect key="frame" x="0.0" y="64" width="156.66666666666666" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Frs-b8-ri8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Axj-nP-8H2"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Axj-nP-8H2" firstAttribute="trailing" secondItem="s3A-LG-VK6" secondAttribute="trailing" constant="20" id="1Dr-Y2-nFa"/>
+                            <constraint firstItem="T1p-mz-Bi2" firstAttribute="top" secondItem="gCI-me-xZw" secondAttribute="bottom" constant="20" id="D3v-DE-lCg"/>
+                            <constraint firstItem="T1p-mz-Bi2" firstAttribute="leading" secondItem="Axj-nP-8H2" secondAttribute="leading" constant="20" id="DOB-z3-NK9"/>
+                            <constraint firstItem="Axj-nP-8H2" firstAttribute="trailing" secondItem="gCI-me-xZw" secondAttribute="trailing" constant="20" id="JCP-Fp-9UJ"/>
+                            <constraint firstItem="gCI-me-xZw" firstAttribute="top" secondItem="s3A-LG-VK6" secondAttribute="bottom" constant="20" id="N9o-f0-Ijx"/>
+                            <constraint firstItem="s3A-LG-VK6" firstAttribute="leading" secondItem="Axj-nP-8H2" secondAttribute="leading" constant="20" id="O4u-Q8-7WO"/>
+                            <constraint firstItem="s3A-LG-VK6" firstAttribute="top" secondItem="Axj-nP-8H2" secondAttribute="top" constant="20" id="hBs-IF-2Tj"/>
+                            <constraint firstItem="gCI-me-xZw" firstAttribute="leading" secondItem="Axj-nP-8H2" secondAttribute="leading" constant="20" id="iKQ-pJ-4ro"/>
+                            <constraint firstItem="Axj-nP-8H2" firstAttribute="trailing" secondItem="T1p-mz-Bi2" secondAttribute="trailing" constant="20" id="wqA-6R-eXV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="comicImage" destination="gCI-me-xZw" id="aHl-fq-5no"/>
+                        <outlet property="comicTitle" destination="iPn-s8-3bW" id="mE1-oi-UDi"/>
+                        <outlet property="dateAdded" destination="biW-Ka-dkc" id="22C-Uo-Gux"/>
+                        <outlet property="textField" destination="CfL-pp-BzW" id="acS-bw-zdg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YgF-b0-ush" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="199" y="770"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
     </resources>
 </document>

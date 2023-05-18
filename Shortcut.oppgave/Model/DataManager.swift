@@ -13,11 +13,14 @@ protocol DataManagerDelegate{
     func didFoundError(_ error: String)
 }
 
+protocol DataManagerDelegateSpecificComic{
+    func didUpdateData(_ comic: Comic, _ image: UIImage)
+    func didFoundError(_ error: String)
+}
+
 class DataManager{
-    
-    var delegate: DataManagerDelegate?
-    var comicList = [Comic]()
-    var comicImgList = [UIImage]()
+    var delegateRandomComic: DataManagerDelegate?
+    var delegateSpecificComic: DataManagerDelegateSpecificComic?
     
     func findLastComicId(completion: @escaping ([Int]) -> Void) {
         let lastComicUrl = "https://xkcd.com/info.0.json"
@@ -26,7 +29,7 @@ class DataManager{
             var randomNumbers = [Int]()
             
             if let error = error {
-                self.delegate?.didFoundError(error.localizedDescription)
+                self.delegateRandomComic?.didFoundError(error.localizedDescription)
             }
             
             if let safeData = result {
@@ -51,7 +54,7 @@ class DataManager{
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    self.delegate?.didFoundError(error!.localizedDescription)
+                    self.delegateRandomComic?.didFoundError(error!.localizedDescription)
                     completion(error, nil)
                     return
                 }
@@ -70,9 +73,12 @@ class DataManager{
     }
     
     func fetchRandomComics() {
-        removeAllComicsFromArray()
         findLastComicId{ randomArray in
             let group = DispatchGroup()
+            
+            var comicList = [Comic]()
+            var comicImgList = [UIImage]()
+            
             for number in randomArray {
                 let numberString = String(number)
                 let url = "https://xkcd.com/" + numberString + "/info.0.json"
@@ -80,16 +86,16 @@ class DataManager{
                 group.enter()
                 self.getData(url: url) { error, result in
                     if let error = error {
-                        self.delegate?.didFoundError(error.localizedDescription)
+                        self.delegateRandomComic?.didFoundError(error.localizedDescription)
                         group.leave()
                     }
 
                     if let safeData = result {
-                        self.comicList.append(safeData)
+                        comicList.append(safeData)
                         group.enter()
                         self.downloadImage(url:  URL(string: safeData.img)! ) { imageResult in
                             if let image = imageResult {
-                                self.comicImgList.append(image)
+                                comicImgList.append(image)
                                 group.leave()
                             }
                         }
@@ -100,8 +106,41 @@ class DataManager{
                 }
             }
             group.notify(queue: .main) {
-                self.delegate?.didUpdateData(self.comicList, self.comicImgList)
+                self.delegateRandomComic?.didUpdateData(comicList, comicImgList)
             }
+        }
+    }
+    
+    func fetchSpecificComics(id:String){
+        let url = "https://xkcd.com/" + id + "/info.0.json"
+        let group = DispatchGroup()
+        
+        var comic:Comic?
+        var comicImage: UIImage?
+
+        group.enter()
+        getData(url: url) { error, result in
+            if let error = error {
+                self.delegateRandomComic?.didFoundError(error.localizedDescription)
+                group.leave()
+            }
+
+            if let safeData = result {
+                comic = safeData
+                group.enter()
+                self.downloadImage(url:  URL(string: safeData.img)! ) { imageResult in
+                    if let image = imageResult {
+                        comicImage = image
+                        group.leave()
+                    }
+                }
+            group.leave()
+            }else{
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            self.delegateSpecificComic?.didUpdateData(comic!, comicImage!)
         }
     }
     
@@ -118,11 +157,6 @@ class DataManager{
                     completion(nil)
                 }
             }.resume()
-    }
-    
-    func removeAllComicsFromArray(){
-        comicList.removeAll()
-        comicImgList.removeAll()
     }
 }
 

@@ -22,7 +22,7 @@ class ListComicsViewController: UIViewController {
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        dataManager.delegate = self
+        dataManager.delegateRandomComic = self
         
         addSpinner()
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F405DA5A2A16B6D100EFEA2B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405DA592A16B6D100EFEA2B /* Extensions.swift */; };
+		F462692B2A16C22300F46852 /* SpecificComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462692A2A16C22300F46852 /* SpecificComicViewController.swift */; };
 		F474CA232A1637B0004033C1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA222A1637B0004033C1 /* Comic.swift */; };
 		F474CA262A16380C004033C1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA252A16380C004033C1 /* DataManager.swift */; };
 		F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA272A164008004033C1 /* CompositionalLayout.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		F405DA592A16B6D100EFEA2B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F462692A2A16C22300F46852 /* SpecificComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificComicViewController.swift; sourceTree = "<group>"; };
 		F474CA222A1637B0004033C1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		F474CA252A16380C004033C1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F474CA272A164008004033C1 /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				F4FB034C2A1631080068BD5E /* ListComicsViewController.swift */,
 				F4CAC0F32A168D9100574654 /* ComicViewController.swift */,
+				F462692A2A16C22300F46852 /* SpecificComicViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				F474CA232A1637B0004033C1 /* Comic.swift in Sources */,
 				F4795E4F2A1650CF00E64A26 /* ComicCell.swift in Sources */,
 				F4FB03532A1631080068BD5E /* Shortcut_oppgave.xcdatamodeld in Sources */,
+				F462692B2A16C22300F46852 /* SpecificComicViewController.swift in Sources */,
 				F4FB034B2A1631080068BD5E /* SceneDelegate.swift in Sources */,
 				F405DA5A2A16B6D100EFEA2B /* Extensions.swift in Sources */,
 				F4CAC0F62A16901300574654 /* LoadingSpinnerViewController.swift in Sources */,
