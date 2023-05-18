@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F405DA5A2A16B6D100EFEA2B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405DA592A16B6D100EFEA2B /* Extensions.swift */; };
 		F462692B2A16C22300F46852 /* SpecificComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462692A2A16C22300F46852 /* SpecificComicViewController.swift */; };
+		F462692D2A16D17100F46852 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F462692C2A16D17100F46852 /* Factories.swift */; };
 		F474CA232A1637B0004033C1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA222A1637B0004033C1 /* Comic.swift */; };
 		F474CA262A16380C004033C1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA252A16380C004033C1 /* DataManager.swift */; };
 		F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA272A164008004033C1 /* CompositionalLayout.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		F405DA592A16B6D100EFEA2B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F462692A2A16C22300F46852 /* SpecificComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificComicViewController.swift; sourceTree = "<group>"; };
+		F462692C2A16D17100F46852 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		F474CA222A1637B0004033C1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		F474CA252A16380C004033C1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F474CA272A164008004033C1 /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				F474CA272A164008004033C1 /* CompositionalLayout.swift */,
 				F4CAC0F52A16901300574654 /* LoadingSpinnerViewController.swift */,
 				F405DA592A16B6D100EFEA2B /* Extensions.swift */,
+				F462692C2A16D17100F46852 /* Factories.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */,
 				F4FB034D2A1631080068BD5E /* ListComicsViewController.swift in Sources */,
+				F462692D2A16D17100F46852 /* Factories.swift in Sources */,
 				F4CAC0F42A168D9100574654 /* ComicViewController.swift in Sources */,
 				F474CA262A16380C004033C1 /* DataManager.swift in Sources */,
 				F4FB03492A1631080068BD5E /* AppDelegate.swift in Sources */,

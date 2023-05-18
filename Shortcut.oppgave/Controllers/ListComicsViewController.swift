@@ -15,7 +15,7 @@ class ListComicsViewController: UIViewController {
     var comicImgList = [UIImage]()
     
     var dataManager = DataManager()
-    let spinner = LoadingSpinnerViewController()
+    let spinnerVC = LoadingSpinnerViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,8 @@ class ListComicsViewController: UIViewController {
         collectionView.delegate = self
         dataManager.delegateRandomComic = self
         
-        addSpinner()
+        addSpinner(to: self, spinner: spinnerVC)
+        refreshButton.isHidden = true
         
         refreshButton.layer.masksToBounds = true
         refreshButton.layer.cornerRadius = refreshButton.bounds.size.width / 2
@@ -62,16 +63,17 @@ class ListComicsViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
-    func addSpinner(){
-        refreshButton.isHidden = true
-        addChild(spinner)
-        spinner.view.frame = view.frame
-        view.addSubview(spinner.view)
-        spinner.didMove(toParent: self)
-    }
+//    func addSpinner(){
+//        refreshButton.isHidden = true
+//        addChild(spinner)
+//        spinner.view.frame = view.frame
+//        view.addSubview(spinner.view)
+//        spinner.didMove(toParent: self)
+//    }
  
     @IBAction func refreshRandomComicsPressed(_ sender: UIButton) {
-        addSpinner()
+        addSpinner(to: self, spinner: spinnerVC)
+        refreshButton.isHidden = true
         comicList.removeAll()
         comicImgList.removeAll()
         collectionView.reloadData()
@@ -112,7 +114,7 @@ extension ListComicsViewController: DataManagerDelegate{
         self.comicList = comicList
         self.comicImgList = imageList
         self.collectionView.reloadData()
-        self.spinner.view.removeFromSuperview()
+        self.spinnerVC.view.removeFromSuperview()
         self.refreshButton.isHidden = false
     }
 }
