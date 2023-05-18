@@ -11,6 +11,7 @@ class ListComicsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var comicList = [Comic]()
+    var comicImgList = [UIImage]()
     var dataManager = DataManager()
 
     override func viewDidLoad() {
@@ -24,9 +25,7 @@ class ListComicsViewController: UIViewController {
     
     func fetchRandomComics() {
         dataManager.findLastComicId{ randomArray in
-            
             let group = DispatchGroup()
-            
             for number in randomArray {
                 let numberString = String(number)
                 let url = "https://xkcd.com/" + numberString + "/info.0.json"
@@ -40,13 +39,18 @@ class ListComicsViewController: UIViewController {
                     
                     if let safeData = result {
                         self.comicList.append(safeData)
+                        self.downloadImage(url:  URL(string: safeData.img)! ) { imageResult in
+                            if let image = imageResult {
+                                self.comicImgList.append(image)
+                            }
+                            group.leave()
+                        }
+                    }else{
                         group.leave()
                     }
                 }
             }
-            
             group.notify(queue: .main) {
-                
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -55,6 +59,25 @@ class ListComicsViewController: UIViewController {
     }
 
     
+    func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        DispatchQueue.global().async {
+            
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                  guard let data = data, error == nil else {
+                      completion(nil)
+                      return
+                  }
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    completion(image)
+                    
+                } else {
+                    completion(nil)
+                }
+            }
+            }.resume()
+        }
+    }
     
     
     func createLayout() -> UICollectionViewCompositionalLayout{
@@ -89,7 +112,8 @@ class ListComicsViewController: UIViewController {
 
 extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        print("comicList \(comicList.count)")
+        print("comicImgList \(comicImgList.count)")
         return comicList.count
     }
 
