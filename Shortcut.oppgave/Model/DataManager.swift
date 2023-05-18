@@ -10,6 +10,7 @@ import UIKit
 
 protocol DataManagerDelegate{
     func didUpdateData(_ comicList: [Comic], _ imageList: [UIImage])
+    func didFoundError(_ error: Error)
 }
 
 class DataManager{
@@ -40,7 +41,7 @@ class DataManager{
    
     func arrayOfRandomNumbers(lastComicId:Int) -> [Int]{
         var randomNumbers = [Int]()
-        for _ in 0...49{
+        for _ in 0...100{
               let randomNumber = Int.random(in: 1...lastComicId)
               randomNumbers.append(randomNumber)
           }
@@ -51,6 +52,7 @@ class DataManager{
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if error != nil {
+                    self.delegate?.didFoundError(error!)
                     completion(error, nil)
                     return
                 }
@@ -81,52 +83,48 @@ class DataManager{
                     if let error = error {
                         let message = error
                         print(message.localizedDescription)
+                        group.leave()
                     }
 
                     if let safeData = result {
                         self.comicList.append(safeData)
+                        group.enter()
                         self.downloadImage(url:  URL(string: safeData.img)! ) { imageResult in
                             if let image = imageResult {
                                 self.comicImgList.append(image)
+                                group.leave()
                             }
-                            group.leave()
                         }
+                    group.leave()
                     }else{
                         group.leave()
                     }
                 }
             }
             group.notify(queue: .main) {
-                DispatchQueue.main.async {
-                    self.delegate?.didUpdateData(self.comicList, self.comicImgList)
-                }
+                self.delegate?.didUpdateData(self.comicList, self.comicImgList)
             }
         }
     }
     
-    func removeAllComicsFromArray(){
-        comicList.removeAll()
-        comicImgList.removeAll()
-    }
-    
     func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
-        DispatchQueue.global().async {
-            
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                   guard let data = data, error == nil else {
                       completion(nil)
                       return
                   }
-            DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
                     completion(image)
                     
                 } else {
                     completion(nil)
                 }
-            }
             }.resume()
-        }
+    }
+    
+    func removeAllComicsFromArray(){
+        comicList.removeAll()
+        comicImgList.removeAll()
     }
 }
 

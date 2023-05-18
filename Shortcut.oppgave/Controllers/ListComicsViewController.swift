@@ -104,6 +104,10 @@ extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDa
 
 
 extension ListComicsViewController: DataManagerDelegate{
+    func didFoundError(_ error: Error) {
+        showAlertWith(message: error.localizedDescription)
+    }
+    
     func didUpdateData(_ comicList: [Comic], _ imageList: [UIImage]) {
         self.comicList = comicList
         self.comicImgList = imageList

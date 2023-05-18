@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F405DA5A2A16B6D100EFEA2B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F405DA592A16B6D100EFEA2B /* Extensions.swift */; };
 		F474CA232A1637B0004033C1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA222A1637B0004033C1 /* Comic.swift */; };
 		F474CA262A16380C004033C1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA252A16380C004033C1 /* DataManager.swift */; };
 		F474CA282A164008004033C1 /* CompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474CA272A164008004033C1 /* CompositionalLayout.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F405DA592A16B6D100EFEA2B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F474CA222A1637B0004033C1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		F474CA252A16380C004033C1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F474CA272A164008004033C1 /* CompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayout.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				F474CA272A164008004033C1 /* CompositionalLayout.swift */,
 				F4CAC0F52A16901300574654 /* LoadingSpinnerViewController.swift */,
+				F405DA592A16B6D100EFEA2B /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				F4795E4F2A1650CF00E64A26 /* ComicCell.swift in Sources */,
 				F4FB03532A1631080068BD5E /* Shortcut_oppgave.xcdatamodeld in Sources */,
 				F4FB034B2A1631080068BD5E /* SceneDelegate.swift in Sources */,
+				F405DA5A2A16B6D100EFEA2B /* Extensions.swift in Sources */,
 				F4CAC0F62A16901300574654 /* LoadingSpinnerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
