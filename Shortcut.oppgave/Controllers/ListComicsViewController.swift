@@ -53,6 +53,15 @@ class ListComicsViewController: UIViewController {
         //return
         return UICollectionViewCompositionalLayout(section: section)
     }
+    
+ 
+    @IBAction func refreshRandomComicsPressed(_ sender: UIButton) {
+        comicList.removeAll()
+        comicImgList.removeAll()
+        collectionView.reloadData()
+        dataManager.fetchRandomComics()
+    }
+    
 }
 
 extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDataSource{

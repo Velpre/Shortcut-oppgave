@@ -51,12 +51,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-bM-S9S">
+                                <rect key="frame" x="273" y="698" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="PiX-RK-79v"/>
+                                    <constraint firstAttribute="height" constant="70" id="Vsd-L6-742"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshRandomComicsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SL2-v4-8NE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iPR-bM-S9S" secondAttribute="trailing" constant="50" id="0k7-U7-yC1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tbp-en-ify" secondAttribute="bottom" id="IBU-T4-nnM"/>
                             <constraint firstItem="Tbp-en-ify" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="duc-iC-yzn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iPR-bM-S9S" secondAttribute="bottom" constant="50" id="eOr-2c-VPf"/>
                             <constraint firstItem="Tbp-en-ify" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gW0-l4-tJf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tbp-en-ify" secondAttribute="trailing" id="xZO-TB-oP6"/>
                         </constraints>
@@ -67,7 +81,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="4"/>
+            <point key="canvasLocation" x="32.824427480916029" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+    </resources>
 </document>
