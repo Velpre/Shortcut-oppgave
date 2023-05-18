@@ -58,7 +58,7 @@ extension SpecificComicViewController: DataManagerDelegateSpecificComic{
     func didUpdateData(_ comic: Comic, _ image: UIImage) {
         self.comicImage.image = image
         self.dateAdded.text = "Date Added: " + comic.day + "." + comic.month + "." + comic.year
-        self.title = "Title: " + comic.title
+        self.comicTitle.text = "Title: " + comic.title
         comicTitle.isHidden = false
         comicImage.isHidden = false
         dateAdded.isHidden = false
@@ -67,6 +67,7 @@ extension SpecificComicViewController: DataManagerDelegateSpecificComic{
     }
     
     func didFoundError(_ error: String) {
+        self.spinner.view.removeFromSuperview()
         showAlertWith(message: error)
     }
 }

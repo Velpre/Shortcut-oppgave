@@ -123,6 +123,7 @@ class DataManager{
             if let error = error {
                 self.delegateRandomComic?.didFoundError(error.localizedDescription)
                 group.leave()
+                return
             }
 
             if let safeData = result {
@@ -138,10 +139,15 @@ class DataManager{
             }else{
                 self.delegateRandomComic?.didFoundError("error.localizedDescription")
                 group.leave()
+                return
             }
         }
         group.notify(queue: .main) {
-            self.delegateSpecificComic?.didUpdateData(comic!, comicImage!)
+            if let comic = comic{
+                self.delegateSpecificComic?.didUpdateData(comic, comicImage!)
+            }else{
+                self.delegateSpecificComic?.didFoundError("Error with data fetching")
+            }
         }
     }
     
