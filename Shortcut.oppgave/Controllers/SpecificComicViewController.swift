@@ -33,14 +33,14 @@ class SpecificComicViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let textFieldData = textField.text{
             if textFieldData.count == 0{
-                showAlertWith(message: "You must write a number")
+                showAlertWith(message: "You must write a id")
+            }else if !textFieldData.isNumber{
+                showAlertWith(message: "You cant write characters")
             }else{
                 addSpinner(to: self, spinner: spinnerVC)
                 hideAllDinamicOutlets()
                 dataManager.fetchSpecificComics(id: textFieldData)
             }
-        }else{
-            print("nooot")
         }
     }
 }
