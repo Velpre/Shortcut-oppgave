@@ -136,6 +136,7 @@ class DataManager{
                 }
             group.leave()
             }else{
+                self.delegateRandomComic?.didFoundError("error.localizedDescription")
                 group.leave()
             }
         }
