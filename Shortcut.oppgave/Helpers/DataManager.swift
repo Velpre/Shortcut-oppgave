@@ -37,7 +37,6 @@ struct DataManager{
               let randomNumber = Int.random(in: 1...lastComicId)
               randomNumbers.append(randomNumber)
           }
-        print(randomNumbers)
         return randomNumbers
     }
     

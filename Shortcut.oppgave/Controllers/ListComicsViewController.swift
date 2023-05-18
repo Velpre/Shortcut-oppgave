@@ -40,7 +40,6 @@ class ListComicsViewController: UIViewController {
                     
                     if let safeData = result {
                         self.comicList.append(safeData)
-                    } else {
                         group.leave()
                     }
                 }
@@ -48,9 +47,9 @@ class ListComicsViewController: UIViewController {
             
             group.notify(queue: .main) {
                 
-            DispatchQueue.main.async {
-                print(self.comicList)
-            }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
@@ -91,11 +90,13 @@ class ListComicsViewController: UIViewController {
 extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 10
+        return comicList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ComicCell
+        
+        cell.textLabel.text = comicList[indexPath.row].title
         return cell
     }
 }
