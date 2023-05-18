@@ -10,7 +10,7 @@ import UIKit
 
 protocol DataManagerDelegate{
     func didUpdateData(_ comicList: [Comic], _ imageList: [UIImage])
-    func didFoundError(_ error: Error)
+    func didFoundError(_ error: String)
 }
 
 class DataManager{
@@ -26,8 +26,7 @@ class DataManager{
             var randomNumbers = [Int]()
             
             if let error = error {
-                let message = error
-                print(message)
+                self.delegate?.didFoundError(error.localizedDescription)
             }
             
             if let safeData = result {
@@ -41,7 +40,7 @@ class DataManager{
    
     func arrayOfRandomNumbers(lastComicId:Int) -> [Int]{
         var randomNumbers = [Int]()
-        for _ in 0...100{
+        for _ in 0...19{
               let randomNumber = Int.random(in: 1...lastComicId)
               randomNumbers.append(randomNumber)
           }
@@ -52,7 +51,7 @@ class DataManager{
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    self.delegate?.didFoundError(error!)
+                    self.delegate?.didFoundError(error!.localizedDescription)
                     completion(error, nil)
                     return
                 }
@@ -81,8 +80,7 @@ class DataManager{
                 group.enter()
                 self.getData(url: url) { error, result in
                     if let error = error {
-                        let message = error
-                        print(message.localizedDescription)
+                        self.delegate?.didFoundError(error.localizedDescription)
                         group.leave()
                     }
 
