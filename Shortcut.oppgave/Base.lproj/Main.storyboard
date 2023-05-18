@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pn-Pa-4ba">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tbp-en-ify">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XWJ-t0-ZOI">
                                     <size key="itemSize" width="128" height="128"/>
@@ -58,7 +58,9 @@
                                     <constraint firstAttribute="height" constant="70" id="Vsd-L6-742"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="arrow.clockwise" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.clockwise" catalog="system">
+                                    <color key="baseBackgroundColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="refreshRandomComicsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SL2-v4-8NE"/>
                                 </connections>
@@ -75,13 +77,102 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tbp-en-ify" secondAttribute="trailing" id="xZO-TB-oP6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Pt-On-SoC"/>
                     <connections>
                         <outlet property="collectionView" destination="Tbp-en-ify" id="aJg-qq-hoh"/>
+                        <outlet property="refreshButton" destination="iPR-bM-S9S" id="nD7-AO-aw2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.824427480916029" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1115.2671755725191" y="3.5211267605633805"/>
+        </scene>
+        <!--Comic View Controller-->
+        <scene sceneID="zRZ-jy-GCn">
+            <objects>
+                <viewController storyboardIdentifier="ComicViewController" id="MwH-IZ-Io1" customClass="ComicViewController" customModule="Shortcut_oppgave" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9SN-dx-RVX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRq-BN-RM3">
+                                <rect key="frame" x="20" y="79" width="353" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="YN2-gb-2E5">
+                                <rect key="frame" x="30" y="529" width="333" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="ID: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAc-mx-S4t">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added: 22.10.1990" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-Ve-mdy">
+                                        <rect key="frame" x="0.0" y="50" width="220.66666666666666" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="fWi-Kz-K9s"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AZ8-Ob-CeL">
+                                <rect key="frame" x="0.0" y="159" width="393" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="M0D-yD-zMg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h49-9H-3Ud"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DRq-BN-RM3" firstAttribute="top" secondItem="h49-9H-3Ud" secondAttribute="top" constant="20" id="2kT-Bu-AR2"/>
+                            <constraint firstItem="DRq-BN-RM3" firstAttribute="leading" secondItem="h49-9H-3Ud" secondAttribute="leading" constant="20" id="6jO-nc-Rey"/>
+                            <constraint firstItem="AZ8-Ob-CeL" firstAttribute="leading" secondItem="h49-9H-3Ud" secondAttribute="leading" id="7GB-iI-N0H"/>
+                            <constraint firstItem="AZ8-Ob-CeL" firstAttribute="trailing" secondItem="h49-9H-3Ud" secondAttribute="trailing" id="MLO-AX-pFo"/>
+                            <constraint firstItem="YN2-gb-2E5" firstAttribute="top" secondItem="AZ8-Ob-CeL" secondAttribute="bottom" constant="20" id="YTx-Vg-3ix"/>
+                            <constraint firstItem="DRq-BN-RM3" firstAttribute="centerX" secondItem="9SN-dx-RVX" secondAttribute="centerX" id="cXI-uv-YUJ"/>
+                            <constraint firstItem="h49-9H-3Ud" firstAttribute="trailing" secondItem="DRq-BN-RM3" secondAttribute="trailing" constant="20" id="jh3-EL-52P"/>
+                            <constraint firstItem="AZ8-Ob-CeL" firstAttribute="top" secondItem="DRq-BN-RM3" secondAttribute="bottom" constant="20" id="oiE-kI-Glt"/>
+                            <constraint firstItem="h49-9H-3Ud" firstAttribute="trailing" secondItem="YN2-gb-2E5" secondAttribute="trailing" constant="30" id="q90-5q-m3d"/>
+                            <constraint firstItem="YN2-gb-2E5" firstAttribute="leading" secondItem="h49-9H-3Ud" secondAttribute="leading" constant="30" id="uax-h1-XVt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="comicId" destination="cAc-mx-S4t" id="dst-kp-u2M"/>
+                        <outlet property="comicImageView" destination="AZ8-Ob-CeL" id="dKN-av-PTo"/>
+                        <outlet property="comicTitle" destination="DRq-BN-RM3" id="87Q-KF-Nj4"/>
+                        <outlet property="dateAdded" destination="eoR-Ve-mdy" id="1Ac-8q-5IV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovd-cI-IrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2385.4961832061067" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0kH-yx-Kst">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9pn-Pa-4ba" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="O1w-WJ-nRV">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vGI-pV-YQd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0DE-iv-fA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="188.54961832061068" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

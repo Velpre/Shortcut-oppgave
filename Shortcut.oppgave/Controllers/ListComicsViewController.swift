@@ -9,10 +9,13 @@ import UIKit
 
 class ListComicsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var refreshButton: UIButton!
     
     var comicList = [Comic]()
     var comicImgList = [UIImage]()
+    
     var dataManager = DataManager()
+    let spinner = LoadingSpinnerViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,11 @@ class ListComicsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         dataManager.delegate = self
+        
+        addSpinner()
+        
+        refreshButton.layer.masksToBounds = true
+        refreshButton.layer.cornerRadius = refreshButton.bounds.size.width / 2
         
         dataManager.fetchRandomComics()
         collectionView.collectionViewLayout = createLayout()
@@ -54,8 +62,16 @@ class ListComicsViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
+    func addSpinner(){
+        refreshButton.isHidden = true
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+    }
  
     @IBAction func refreshRandomComicsPressed(_ sender: UIButton) {
+        addSpinner()
         comicList.removeAll()
         comicImgList.removeAll()
         collectionView.reloadData()
@@ -76,6 +92,14 @@ extension ListComicsViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.comicImage.image = comicImgList[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let comicVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ComicViewController") as! ComicViewController
+        comicVC.comicImage = comicImgList[indexPath.row]
+        comicVC.comic = comicList[indexPath.row]
+        
+        navigationController?.pushViewController(comicVC, animated: true)
+    }
 }
 
 
@@ -84,6 +108,8 @@ extension ListComicsViewController: DataManagerDelegate{
         self.comicList = comicList
         self.comicImgList = imageList
         self.collectionView.reloadData()
+        self.spinner.view.removeFromSuperview()
+        self.refreshButton.isHidden = false
     }
 }
 

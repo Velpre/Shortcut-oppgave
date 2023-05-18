@@ -8,6 +8,5 @@
 import UIKit
 
 class ComicCell: UICollectionViewCell {
-    
     @IBOutlet weak var comicImage: UIImageView!
 }

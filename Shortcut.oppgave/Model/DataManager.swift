@@ -37,6 +37,7 @@ class DataManager{
             completion(randomNumbers)
         }
     }
+   
     func arrayOfRandomNumbers(lastComicId:Int) -> [Int]{
         var randomNumbers = [Int]()
         for _ in 0...49{
@@ -45,6 +46,7 @@ class DataManager{
           }
         return randomNumbers
     }
+    
     func getData(url:String, completion: @escaping (Error?, Comic?) -> Void) {
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -65,6 +67,7 @@ class DataManager{
             }.resume()
         }
     }
+    
     func fetchRandomComics() {
         removeAllComicsFromArray()
         findLastComicId{ randomArray in
@@ -100,10 +103,12 @@ class DataManager{
             }
         }
     }
+    
     func removeAllComicsFromArray(){
         comicList.removeAll()
         comicImgList.removeAll()
     }
+    
     func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
             
