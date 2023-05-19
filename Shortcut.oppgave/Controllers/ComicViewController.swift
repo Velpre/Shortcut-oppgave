@@ -14,6 +14,7 @@ class ComicViewController: UIViewController {
     @IBOutlet weak var comicTitle: UILabel!
     @IBOutlet weak var dateAdded: UILabel!
     
+    //This values are passed/updated inside ListComicsViewController when user click on cell
     var comic:Comic?
     var comicImage:UIImage?
     

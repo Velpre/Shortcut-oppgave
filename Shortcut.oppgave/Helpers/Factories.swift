@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//Method for adding spinner
 func addSpinner(to viewController: UIViewController, spinner: UIViewController) {
     viewController.addChild(spinner)
     spinner.view.frame = viewController.view.frame

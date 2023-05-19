@@ -24,6 +24,7 @@ extension UIViewController {
 }
 
 extension String {
+    //Checking if user write characters or not
     var isNumber: Bool {
         let digitsCharacters = CharacterSet(charactersIn: "0123456789")
         return CharacterSet(charactersIn: self).isSubset(of: digitsCharacters)

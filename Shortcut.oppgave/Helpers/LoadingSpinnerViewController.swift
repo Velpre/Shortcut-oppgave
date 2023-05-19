@@ -17,7 +17,7 @@ class LoadingSpinnerViewController: UIViewController {
         spinner.startAnimating()
         spinner.color = .white
         view.addSubview(spinner)
-
+        //Centering
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }

@@ -21,13 +21,15 @@ class SpecificComicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.delegateSpecificComic = self
-        hideAllDinamicOutlets()
+        //Default hiding outlets before updating
+        hideShowAllDinamicOutlets(state: true)
     }
     
-    func hideAllDinamicOutlets(){
-        comicTitle.isHidden = true
-        comicImage.isHidden = true
-        dateAdded.isHidden = true
+    //Dinamicly hiding and showing outlets
+    func hideShowAllDinamicOutlets(state:Bool){
+        comicTitle.isHidden = state
+        comicImage.isHidden = state
+        dateAdded.isHidden = state
     }
 
     @IBAction func searchButtonPressed(_ sender: UIButton) {
@@ -38,24 +40,24 @@ class SpecificComicViewController: UIViewController {
                 showAlertWith(message: "You cant write characters")
             }else{
                 addSpinner(to: self, spinner: spinnerVC)
-                hideAllDinamicOutlets()
+                //Hiding outlets while updating
+                hideShowAllDinamicOutlets(state: true)
                 dataManager.fetchSpecificComics(id: textFieldData)
             }
         }
     }
 }
 
+//MARK: Extension for DataManagerDelegate for picking data from DataManager
 extension SpecificComicViewController: DataManagerDelegateSpecificComic{
     func didUpdateData(_ comic: Comic, _ image: UIImage) {
         self.comicImage.image = image
         self.dateAdded.text = "Date Added: " + comic.day + "." + comic.month + "." + comic.year
         self.comicTitle.text = "Title: " + comic.title
         self.textField.text = ""
-        comicTitle.isHidden = false
-        comicImage.isHidden = false
-        dateAdded.isHidden = false
+        //Showing outlets after updating
+        hideShowAllDinamicOutlets(state: false)
         self.spinnerVC.view.removeFromSuperview()
-        
     }
     
     func didFoundError(_ error: String) {

@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
+//Protocol delegate for returning random comic
 protocol DataManagerDelegate{
     func didUpdateData(_ comicList: [Comic], _ imageList: [UIImage])
     func didFoundError(_ error: String)
 }
-
+//Protocol delegate for returning specific comic
 protocol DataManagerDelegateSpecificComic{
     func didUpdateData(_ comic: Comic, _ image: UIImage)
     func didFoundError(_ error: String)
@@ -22,6 +23,7 @@ class DataManager{
     var delegateRandomComic: DataManagerDelegate?
     var delegateSpecificComic: DataManagerDelegateSpecificComic?
     
+    //Finding last comic id and calling array of random numbers
     func findLastComicId(completion: @escaping ([Int]) -> Void) {
         let lastComicUrl = "https://xkcd.com/info.0.json"
         
@@ -40,7 +42,7 @@ class DataManager{
             completion(randomNumbers)
         }
     }
-   
+    //Returning array with random numbers - it is only ID numbers of real comic
     func arrayOfRandomNumbers(lastComicId:Int) -> [Int]{
         var randomNumbers = [Int]()
         for _ in 0...19{
@@ -49,7 +51,7 @@ class DataManager{
           }
         return randomNumbers
     }
-    
+    //fetch data
     func getData(url:String, completion: @escaping (Error?, Comic?) -> Void) {
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -72,6 +74,7 @@ class DataManager{
         }
     }
     
+    //Calling get data & downloadImage several times - append data to array - pass data to delegate to send to controller
     func fetchRandomComics() {
         findLastComicId{ randomArray in
             let group = DispatchGroup()
@@ -110,7 +113,7 @@ class DataManager{
             }
         }
     }
-    
+    //Calling get data & downloadImage - pass data to delegate to send to controller
     func fetchSpecificComics(id:String){
         let url = "https://xkcd.com/" + id + "/info.0.json"
         let group = DispatchGroup()
